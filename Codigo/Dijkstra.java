@@ -42,7 +42,7 @@ public class Dijkstra {
 		}
 		distancias[origem] = 0;
 
-		HeapBinario heap = new HeapBinario(grafo.getNumeroDeVertices());
+		HeapBinario heap = new HeapBinario(grafo.getQuantidadeArestas());
 		heap.adicionar(origem);
 
 		while (heap.getTamanho() > 0) {

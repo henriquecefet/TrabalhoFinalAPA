@@ -33,6 +33,13 @@ public class Grafo {
 			System.out.println("-------------------");
 		}
 	}
+	public int getQuantidadeArestas() {
+		int quantidadeArestas = 0;
+		for(int i = 0; i< adjacencias.length; i++) {
+			quantidadeArestas+=adjacencias[i].getTamanho();
+		}
+		return quantidadeArestas;
+	}
 
 	public static class Aresta {
 		private int destino;

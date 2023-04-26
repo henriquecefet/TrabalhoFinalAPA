@@ -6,17 +6,22 @@ import java.io.IOException;
 
 public class Execucao {
 	public static void main(String[] args) {
-		Grafo grafo = lerGrafoDoArquivoTestSet1("src/test_set1/check_v5_s1.DAT");
+		Grafo grafo = lerGrafoDoArquivoTestSet2("src/test_set2/inst_v100_s2.DAT");
 		// grafo.printGrafo();
+		
 		long inicio = System.currentTimeMillis();
+		
 		int[] distancias = Dijkstra.primeiroDijkstra(grafo, 0); //Trocar para 1 quando for ALUE, ALUT ou DMXA
 		long fim = System.currentTimeMillis();
-		
+	
 		System.out.println("Tempo de execução do primeiroDijkstra: " + (fim - inicio) + "ms");
 		for (int i = 0; i < distancias.length; i++) {
-			//if(distancias[i] < 2147483647) {
-			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias[i]);
-			//}
+			if(i < 400) {
+			//System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias[i]);
+			}
+			else {
+				break;
+			}
 		}
 		
 		System.out.println("---------------------------------------------------------------------------");
@@ -25,9 +30,12 @@ public class Execucao {
 		fim = System.currentTimeMillis();
 		System.out.println("Tempo de execução do segundoDijkstra: " + (fim - inicio) + "ms");
 		for (int i = 0; i < distancias2.length; i++) {
-			//if(distancias2[i] < 2147483647) {
-				System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias2[i]);
-			//}
+			if(i < 400) {
+				//System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias2[i]);
+			}
+			else {
+				break;
+			}
 			
 		}
 	}
