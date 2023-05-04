@@ -3,6 +3,7 @@ package Codigo;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Execucao {
 	public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class Execucao {
 		int[] distancias = Dijkstra.primeiroDijkstra(grafo, 0); // Trocar para 1 quando for ALUE, ALUT ou DMXA
 		long fim = System.nanoTime();
 
-		System.out.println("Tempo de execução do primeiroDijkstra: " + (fim - inicio) + " nanosegundos");
+		System.out.println("Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 		for (int i = 0; i < distancias.length; i++) {
 			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias[i]);
 		}
@@ -24,7 +25,7 @@ public class Execucao {
 		inicio = System.nanoTime();
 		int[] distancias2 = Dijkstra.segundoDijkstra(grafo, 0); // Trocar para 1 quando for ALUE, ALUT ou DMXA
 		fim = System.nanoTime();
-		System.out.println("Tempo de execução do segundoDijkstra: " + (fim - inicio) + "ms");
+		System.out.println("Tempo de execução do segundoDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 		for (int i = 0; i < distancias2.length; i++) {
 			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias2[i]);
 		}
@@ -37,27 +38,27 @@ public class Execucao {
 		int[] distancias3 = Dijkstra.primeiroDijkstra(grafo, 1); // Trocar para 1 quando for ALUE, ALUT ou DMXA
 		fim = System.nanoTime();
 
-		System.out.println("ALUE: Tempo de execução do primeiroDijkstra: " + (fim - inicio) + " nanosegundos");
+		System.out.println("ALUE: Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 
 		
 		inicio = System.nanoTime();
 		int[] distancias4 = Dijkstra.segundoDijkstra(grafo, 1); // Trocar para 1 quando for ALUE, ALUT ou DMXA
 		fim = System.nanoTime();
-		System.out.println("ALUE: Tempo de execução do segundoDijkstra: " + (fim - inicio) + " nanosegundos");
+		System.out.println("ALUE: Tempo de execução do segundoDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 		System.out.println("---------------------------------------------------------------------------");
 		//ALUT
-		Grafo grafo3 = lerGrafoDoArquivoALUT("src/ALUT/alut2610.STP");
+		Grafo grafo3 = lerGrafoDoArquivoALUT("src/ALUT/alut2625.STP");
 		inicio = System.nanoTime();
 
 		int[] distancias5 = Dijkstra.primeiroDijkstra(grafo, 1); // Trocar para 1 quando for ALUE, ALUT ou DMXA
 		fim = System.nanoTime();
 
-		System.out.println("ALUT: Tempo de execução do primeiroDijkstra: " + (fim - inicio) + " nanosegundos");
+		System.out.println("ALUT: Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 
 		inicio = System.nanoTime();
 		int[] distancias6 = Dijkstra.segundoDijkstra(grafo, 1); // Trocar para 1 quando for ALUE, ALUT ou DMXA
 		fim = System.nanoTime();
-		System.out.println("ALUT: Tempo de execução do segundoDijkstra: " + (fim - inicio) + " nanosegundos");
+		System.out.println("ALUT: Tempo de execução do segundoDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 	}
 
 	// TestSet1
@@ -294,5 +295,8 @@ public class Execucao {
 			e.printStackTrace();
 		}
 		return grafo;
+	}
+	public static double convertNanoToMilli(long nano) {
+	    return (double) nano / 1_000_000.0;
 	}
 }
