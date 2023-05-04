@@ -12,8 +12,13 @@ public class Grafo {
 		}
 	}
 
-	public void adicionarAresta(int origem, int destino, int peso) {
+	public void adicionarArestaTestSets(int origem, int destino, int peso) {
 		this.adjacencias[origem].adicionar(new Aresta(destino, peso));
+	}
+	
+	public void adicionarArestaAlueAlutDmxa(int origem, int destino, int peso) {
+		this.adjacencias[origem].adicionar(new Aresta(destino, peso));
+		this.adjacencias[destino].adicionar(new Aresta(origem, peso));
 	}
 
 	public ListaEncadeada<Aresta> getAdjacencias(int vertice) {

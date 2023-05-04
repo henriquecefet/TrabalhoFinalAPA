@@ -2,6 +2,7 @@ package Codigo;
 
 public class Principal {
 	public static void main(String[] args) {
+		/*
 		Grafo grafo = new Grafo(6);
 		grafo.adicionarAresta(1, 0, 0);
 		grafo.adicionarAresta(0, 1, 5);
@@ -35,6 +36,8 @@ public class Principal {
 		int[] distancias2 = Dijkstra.segundoDijkstra(grafo, 0);
 		for (int i = 0; i < distancias2.length; i++) {
 			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias2[i]);
+			
 		}
+		*/
 	}
 }
