@@ -101,7 +101,7 @@ public class Execucao {
 				case "src/test_set2/inst_v1000_s2.DAT":
 					testSet2fazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
-				//ALUE
+				// ALUE
 				case "src/ALUE/alue2087.STP":
 					ALUEfazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
@@ -147,7 +147,7 @@ public class Execucao {
 				case "src/ALUE/alue7229.STP":
 					ALUEfazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
-				//ALUT
+				// ALUT
 				case "src/ALUT/alut2764.STP":
 					ALUTfazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
@@ -172,7 +172,7 @@ public class Execucao {
 				case "src/ALUT/alut0787.STP":
 					ALUTfazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
-				//DXMA
+				// DXMA
 				case "src/DMXA/dmxa0296.STP":
 					DMXAfazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
@@ -284,7 +284,7 @@ public class Execucao {
 				case "src/test_set2/inst_v1000_s2.DAT":
 					testSet2fazerSegundoDijkstraTempo(opcaoArquivo);
 					break;
-					//ALUE
+				// ALUE
 				case "src/ALUE/alue2087.STP":
 					ALUEfazerSegundoDijkstraTempo(opcaoArquivo);
 					break;
@@ -330,7 +330,7 @@ public class Execucao {
 				case "src/ALUE/alue7229.STP":
 					ALUEfazerSegundoDijkstraTempo(opcaoArquivo);
 					break;
-					//ALUT
+				// ALUT
 				case "src/ALUT/alut2764.STP":
 					ALUTfazerSegundoDijkstraTempo(opcaoArquivo);
 					break;
@@ -355,52 +355,52 @@ public class Execucao {
 				case "src/ALUT/alut0787.STP":
 					ALUTfazerSegundoDijkstraTempo(opcaoArquivo);
 					break;
-					//DXMA
-					case "src/DMXA/dmxa0296.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa0368.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa0454.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa0628.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa0734.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa0848.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa0903.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa1010.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa1109.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa1200.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa1304.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa1516.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa1721.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
-					case "src/DMXA/dmxa1801.STP":
-						DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
-						break;
+				// DXMA
+				case "src/DMXA/dmxa0296.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa0368.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa0454.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa0628.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa0734.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa0848.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa0903.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa1010.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa1109.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa1200.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa1304.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa1516.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa1721.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/DMXA/dmxa1801.STP":
+					DMXAfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
 
 				}
-				
+
 			}
 		}
 
