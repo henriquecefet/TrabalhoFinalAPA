@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Execucao {
 	public static void main(String[] args) {
-		boolean opcaoPrint = false;
-		int opcaoAlgoritmo = 2; // 1 para o primeiro Dijkstra, 2 para o segundo.
-		String opcaoArquivo = "src/ALUE/alue5901.STP";
+		boolean opcaoPrint = true;
+		int opcaoAlgoritmo = 1; // 1 para o primeiro Dijkstra, 2 para o segundo.
+		String opcaoArquivo = "src/test_set2/check_v5_s2.DAT";
 		if (opcaoPrint) {
 			if (opcaoAlgoritmo == 1) {
 				switch (opcaoArquivo) {
@@ -656,7 +656,7 @@ public class Execucao {
 
 		System.out.println("Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 		for (int i = 0; i < distancias.length; i++) {
-			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias[i]);
+			System.out.println("d["+i+"] = "+distancias[i]);
 		}
 	}
 
@@ -678,7 +678,7 @@ public class Execucao {
 		int[] distancias = Dijkstra.segundoDijkstra(grafo, 0);
 		System.out.println("Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 		for (int i = 0; i < distancias.length; i++) {
-			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias[i]);
+			System.out.println("d["+i+"] = "+distancias[i]);
 		}
 	}
 
@@ -702,7 +702,7 @@ public class Execucao {
 
 		System.out.println("Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 		for (int i = 0; i < distancias.length; i++) {
-			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias[i]);
+			System.out.println("d["+i+"] = "+distancias[i]);
 		}
 	}
 
@@ -724,7 +724,7 @@ public class Execucao {
 
 		System.out.println("Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 		for (int i = 0; i < distancias.length; i++) {
-			System.out.println("Distância mínima do vértice " + i + " a partir da origem: " + distancias[i]);
+			System.out.println("d["+i+"] = "+distancias[i]);
 		}
 	}
 
