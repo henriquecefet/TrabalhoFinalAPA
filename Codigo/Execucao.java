@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Execucao {
 	public static void main(String[] args) {
-		boolean opcaoPrint = true;
-		int opcaoAlgoritmo = 1; // 1 para o primeiro Dijkstra, 2 para o segundo.
-		String opcaoArquivo = "src/test_set2/check_v5_s2.DAT";
+		boolean opcaoPrint = false;
+		int opcaoAlgoritmo = 2; // 1 para o primeiro Dijkstra, 2 para o segundo.
+		String opcaoArquivo = "src/test_set2/inst_v1000_s2.DAT";
 		if (opcaoPrint) {
 			if (opcaoAlgoritmo == 1) {
 				switch (opcaoArquivo) {
@@ -170,6 +170,9 @@ public class Execucao {
 					ALUTfazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
 				case "src/ALUT/alut0787.STP":
+					ALUTfazerPrimeiroDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/ALUT/alut2610.STP":
 					ALUTfazerPrimeiroDijkstraTempo(opcaoArquivo);
 					break;
 				// DXMA
@@ -353,6 +356,9 @@ public class Execucao {
 					ALUTfazerSegundoDijkstraTempo(opcaoArquivo);
 					break;
 				case "src/ALUT/alut0787.STP":
+					ALUTfazerSegundoDijkstraTempo(opcaoArquivo);
+					break;
+				case "src/ALUT/alut2610.STP":
 					ALUTfazerSegundoDijkstraTempo(opcaoArquivo);
 					break;
 				// DXMA
