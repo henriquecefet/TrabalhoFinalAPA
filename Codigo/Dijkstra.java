@@ -1,7 +1,16 @@
 package Codigo;
 
 public class Dijkstra {
+
+	public static double convertNanoToMilli(long nano) {
+		return (double) nano / 1_000_000.0;
+	}
+
 	public static int[] primeiroDijkstra(Grafo grafo, int origem) {
+		// Implementacao do algoritmo de Dijkstra utilizando vetor
+
+		long inicio = System.nanoTime();
+
 		int[] distancias = new int[grafo.getNumeroDeVertices()];
 		boolean[] visitados = new boolean[grafo.getNumeroDeVertices()];
 
@@ -30,10 +39,18 @@ public class Dijkstra {
 			}
 		}
 
+		long fim = System.nanoTime();
+		System.out.println(
+				"[segundoDijkstra] Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
+
 		return distancias;
 	}
 
 	public static int[] segundoDijkstra(Grafo grafo, int origem) {
+		// Implementação do algoritmo de Dijkstra usando Heap Binário
+
+		long inicio = System.nanoTime();
+
 		int[] distancias = new int[grafo.getNumeroDeVertices()];
 		boolean[] visitados = new boolean[grafo.getNumeroDeVertices()];
 
@@ -60,6 +77,10 @@ public class Dijkstra {
 				}
 			}
 		}
+
+		long fim = System.nanoTime();
+		System.out.println(
+				"[segundoDijkstra] Tempo de execução do segundoDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
 
 		return distancias;
 	}
