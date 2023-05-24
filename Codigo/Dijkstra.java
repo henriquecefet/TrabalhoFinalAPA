@@ -6,7 +6,7 @@ public class Dijkstra {
 		return (double) nano / 1_000_000.0;
 	}
 
-	public static int[] primeiroDijkstra(Grafo grafo, int origem) {
+	public static int[] dijkstraUtilizandoVetor(Grafo grafo, int origem) {
 		// Implementacao do algoritmo de Dijkstra utilizando vetor
 
 		long inicio = System.nanoTime();
@@ -41,12 +41,14 @@ public class Dijkstra {
 
 		long fim = System.nanoTime();
 		System.out.println(
-				"[segundoDijkstra] Tempo de execução do primeiroDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
+				"[dijkstraUtilizandoVetor] Tempo de execução do dijkstraUtilizandoVetor: "
+						+ convertNanoToMilli(fim - inicio)
+						+ "ms");
 
 		return distancias;
 	}
 
-	public static int[] segundoDijkstra(Grafo grafo, int origem) {
+	public static int[] dijkstraUtilizandoHeap(Grafo grafo, int origem) {
 		// Implementação do algoritmo de Dijkstra usando Heap Binário
 
 		long inicio = System.nanoTime();
@@ -80,7 +82,9 @@ public class Dijkstra {
 
 		long fim = System.nanoTime();
 		System.out.println(
-				"[segundoDijkstra] Tempo de execução do segundoDijkstra: " + convertNanoToMilli(fim - inicio) + "ms");
+				"[dijkstraUtilizandoHeap] Tempo de execução do dijkstraUtilizandoHeap: "
+						+ convertNanoToMilli(fim - inicio)
+						+ "ms");
 
 		return distancias;
 	}
