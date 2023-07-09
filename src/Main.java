@@ -1,13 +1,28 @@
-package Codigo;
+package src;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Execucao {
+import src.algorithms.Dijkstra;
+
+public class Main {
+	public static String opcaoArquivo = "grafos/test_set2/check_v5_s2.dat";
+	public static int opcaoAlgoritmo = 2; // 1 = Vetor | 2 = Heap
+	public static int origem = 0; // Sempre queremos começar do vértice 0
+
+	public static double convertNanoToMilli(long nano) {
+		return (double) nano / 1_000_000.0;
+	}
+
 	public static void main(String[] args) {
-		int opcaoAlgoritmo = 1; // 1 para o primeiro Dijkstra, 2 para o segundo.
-		String opcaoArquivo = "test_set2/check_v5_s2.dat";
+
+		File f = new File(opcaoArquivo);
+		if (!f.exists() && !f.isDirectory()) {
+			System.out.println("Arquivo não encontrado.");
+			return;
+		}
 
 		boolean isTestSet_1 = opcaoArquivo.indexOf("test_set1") != -1 ? true : false;
 		boolean isTestSet_2 = opcaoArquivo.indexOf("test_set2") != -1 ? true : false;
@@ -15,21 +30,22 @@ public class Execucao {
 		boolean isALUT = opcaoArquivo.indexOf("ALUT") != -1 ? true : false;
 		boolean isDMXA = opcaoArquivo.indexOf("DMXA") != -1 ? true : false;
 
+		Grafo grafo;
 		if (isTestSet_1 || isTestSet_2) {
-			testSetDijkstra(opcaoArquivo, opcaoAlgoritmo);
+			grafo = lerGrafoTestSet(opcaoArquivo);
 		} else if (isALUE || isALUT || isDMXA) {
-			runDijkstra(opcaoArquivo, opcaoAlgoritmo);
+			grafo = lerGrafo(opcaoArquivo);
 		} else {
-			System.out.println("Arquivo não encontrado.");
+			System.out.println("Tipo de Grafo não reconhecido.");
+			return;
 		}
-
+		runDijkstra(grafo, opcaoAlgoritmo, origem);
 	}
 
-	// TestSet
-	private static Grafo lerGrafoDoArquivoTestSet(String nomeDoArquivo) {
+	private static Grafo lerGrafoTestSet(String nomeDoArquivo) {
 		Grafo grafo = null;
 		try (BufferedReader reader = new BufferedReader(new FileReader(nomeDoArquivo))) {
-			grafo = lerNumeroNosTestSet(nomeDoArquivo);
+			grafo = lerNumerosTestSet(nomeDoArquivo);
 			String linha;
 			while ((linha = reader.readLine()) != null) {
 				try {
@@ -49,7 +65,7 @@ public class Execucao {
 		return grafo;
 	}
 
-	private static Grafo lerNumeroNosTestSet(String nomeDoArquivo) {
+	private static Grafo lerNumerosTestSet(String nomeDoArquivo) {
 		Grafo grafo = null;
 		try (BufferedReader reader = new BufferedReader(new FileReader(nomeDoArquivo))) {
 			String linha;
@@ -79,8 +95,8 @@ public class Execucao {
 				try {
 					String[] partes = linha.split(" ");
 					if (partes[0].equals("E")) {
-						int origem = Integer.parseInt(partes[1]);
-						int destino = Integer.parseInt(partes[2]);
+						int origem = Integer.parseInt(partes[1]) - 1;
+						int destino = Integer.parseInt(partes[2]) - 1;
 						int peso = Integer.parseInt(partes[3]);
 						grafo.adicionarAresta(origem, destino, peso);
 					}
@@ -104,7 +120,7 @@ public class Execucao {
 				try {
 					String[] partes = linha.split(" ");
 					if (partes[0].equals("Nodes")) {
-						grafo = new Grafo(Integer.parseInt(partes[1] + 1));
+						grafo = new Grafo(Integer.parseInt(partes[1]));
 						return grafo;
 					}
 				} catch (Exception e) {
@@ -117,26 +133,26 @@ public class Execucao {
 		return grafo;
 	}
 
-	public static void testSetDijkstra(String arquivo, int opcaoAlgoritmo) {
-		Grafo grafo = lerGrafoDoArquivoTestSet(arquivo);
+	public static void runDijkstra(Grafo grafo, int opcaoAlgoritmo, int origem) {
 		int[] distancias = null;
+
+		long inicio = System.nanoTime();
 		if (opcaoAlgoritmo == 1) {
-			distancias = Dijkstra.dijkstraUtilizandoVetor(grafo, 0);
+			distancias = Dijkstra.dijkstraUtilizandoVetor(grafo, origem);
 		} else {
-			distancias = Dijkstra.dijkstraUtilizandoHeap(grafo, 0);
+			distancias = Dijkstra.dijkstraUtilizandoHeap(grafo, origem);
 		}
+		long fim = System.nanoTime();
+
 		for (int i = 0; i < distancias.length; i++) {
 			System.out.println("d[" + i + "] = " + distancias[i]);
 		}
-	}
 
-	public static void runDijkstra(String arquivo, int opcaoAlgoritmo) {
-		Grafo grafo = lerGrafo(arquivo);
-		if (opcaoAlgoritmo == 1) {
-			Dijkstra.dijkstraUtilizandoVetor(grafo, 1);
-		} else {
-			Dijkstra.dijkstraUtilizandoHeap(grafo, 1);
-		}
+		System.out.println("********* Resultados *********");
+		System.out.println("Arquivo: " + opcaoArquivo);
+		System.out.println("Tempo total: " + convertNanoToMilli(fim - inicio) + "ms");
+		System.out.println("Estrutura utilizada: " + (opcaoAlgoritmo == 1 ? "vetor" : "heap"));
+
 	}
 
 }

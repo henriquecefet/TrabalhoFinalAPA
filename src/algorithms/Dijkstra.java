@@ -1,15 +1,13 @@
-package Codigo;
+package src.algorithms;
+
+import src.Grafo;
+import src.data_structures.HeapBinario;
+import src.data_structures.ListaEncadeada;
 
 public class Dijkstra {
 
-	public static double convertNanoToMilli(long nano) {
-		return (double) nano / 1_000_000.0;
-	}
-
 	public static int[] dijkstraUtilizandoVetor(Grafo grafo, int origem) {
 		// Implementacao do algoritmo de Dijkstra utilizando vetor
-
-		long inicio = System.nanoTime();
 
 		int[] distancias = new int[grafo.getNumeroDeVertices()];
 		boolean[] visitados = new boolean[grafo.getNumeroDeVertices()];
@@ -39,19 +37,12 @@ public class Dijkstra {
 			}
 		}
 
-		long fim = System.nanoTime();
-		System.out.println(
-				"[dijkstraUtilizandoVetor] Tempo de execução do dijkstraUtilizandoVetor: "
-						+ convertNanoToMilli(fim - inicio)
-						+ "ms");
 
 		return distancias;
 	}
 
 	public static int[] dijkstraUtilizandoHeap(Grafo grafo, int origem) {
 		// Implementação do algoritmo de Dijkstra usando Heap Binário
-
-		long inicio = System.nanoTime();
 
 		int[] distancias = new int[grafo.getNumeroDeVertices()];
 		boolean[] visitados = new boolean[grafo.getNumeroDeVertices()];
@@ -79,12 +70,6 @@ public class Dijkstra {
 				}
 			}
 		}
-
-		long fim = System.nanoTime();
-		System.out.println(
-				"[dijkstraUtilizandoHeap] Tempo de execução do dijkstraUtilizandoHeap: "
-						+ convertNanoToMilli(fim - inicio)
-						+ "ms");
 
 		return distancias;
 	}

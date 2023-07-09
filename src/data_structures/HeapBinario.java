@@ -1,4 +1,4 @@
-package Codigo;
+package src.data_structures;
 
 public class HeapBinario {
     private int[] elementos;

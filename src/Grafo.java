@@ -1,4 +1,6 @@
-package Codigo;
+package src;
+
+import src.data_structures.ListaEncadeada;
 
 public class Grafo {
 	private ListaEncadeada<Aresta>[] adjacencias;

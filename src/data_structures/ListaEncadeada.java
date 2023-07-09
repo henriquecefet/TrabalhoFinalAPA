@@ -1,4 +1,4 @@
-package Codigo;
+package src.data_structures;
 public class ListaEncadeada<T> {
     private No<T> primeiro;
     private No<T> ultimo;
